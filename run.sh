@@ -42,6 +42,7 @@ declare -A theme_deps
 
 # Configuration
 # -------------
+
 mkdir -p ~/.wp-cli
 echo -e "
 path: /app
@@ -59,6 +60,8 @@ config create:
     extra-php: |
         define('WP_DEBUG', ${WP_DEBUG:-false});
         define('WP_DEBUG_LOG', ${WP_DEBUG_LOG:-false});
+        define('WP_DEBUG_DISPLAY', ${WP_DEBUG_DISPLAY:-true});
+        define('WP_DEBUG_DISPLAY', ${WP_DEBUG_DISPLAY:-true});
         define('WP_DEBUG_DISPLAY', ${WP_DEBUG_DISPLAY:-true});
         $(sed '1 ! s/.*/        \0/' < <(echo -e "${EXTRA_PHP:-}"))
 
@@ -81,7 +84,7 @@ rewrite structure:
 " > ~/.wp-cli/config.yml
 
 main() {
-    h1 'Begin WordPress Installation'
+    h2 'ok then'
     init
 
     h2 'Waiting for MySQL to initialize...'
@@ -133,6 +136,10 @@ main() {
 # ---------------------
 
 init() {
+    set -x
+
+    h2 inside init function
+
     declare raw_line
     declare -a keyvalue
 

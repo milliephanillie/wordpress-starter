@@ -43,7 +43,10 @@ RUN echo "deb http://ftp.debian.org/debian $(sed -n 's/^VERSION=.*(\(.*\)).*/\1/
     && { \
         echo 'memory_limit = 512M'; \
         # See https://github.com/visiblevc/wordpress-starter/issues/160#issuecomment-544561961
-        echo 'upload_max_filesize = 50M'; \
+        echo 'upload_max_filesize = 64M'; \
+        echo 'post_max_size = 64M';  \
+        echo 'max_input_time = 60'; \
+        echo 'max_input_vars = 2000'; \
     } > /usr/local/etc/php/php.ini \
     # See https://secure.php.net/manual/en/opcache.installation.php
     && { \
