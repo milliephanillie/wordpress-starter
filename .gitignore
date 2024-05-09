@@ -21,3 +21,4 @@ wp-content/*
 
 # WordPress Starter Dev Files
 /docker-compose.yml
+node_modules/

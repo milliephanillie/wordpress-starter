@@ -16,11 +16,13 @@
     public function do_cron_job() {}
 
     public function register_post_type_of_books() {
-        register_post_type()
+        register_post_type();
     }
     
     public function send_get_request() {
         // Request the Amazon url 
+        $url = self::WEBPAGE_TO_SCRAPE;
+
     }
 
     public function update_books() {}
