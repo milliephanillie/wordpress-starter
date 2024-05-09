@@ -1,0 +1,313 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-05 15:53+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: aphs-shortcode-editor.php:221
+msgid "Shortcode generator"
+msgstr ""
+
+#: aphs-shortcode-editor.php:222
+msgid "Examples"
+msgstr ""
+
+#: aphs-shortcode-editor.php:228
+msgid ""
+"Insert sound url in post editor (upload sound and url will be inserted in "
+"post editor at cursor position)"
+msgstr ""
+
+#: aphs-shortcode-editor.php:229 aphs-shortcode-editor.php:239
+msgid "Upload sound"
+msgstr ""
+
+#: aphs-shortcode-editor.php:233
+msgid "Add sounds to elements (add element ID attribute and upload sound)"
+msgstr ""
+
+#: aphs-shortcode-editor.php:237
+msgid "Enter element ID attribute"
+msgstr ""
+
+#: aphs-shortcode-editor.php:238
+msgid "Sound url"
+msgstr ""
+
+#: aphs-shortcode-editor.php:242
+msgid "Remove sound"
+msgstr ""
+
+#: aphs-shortcode-editor.php:245
+msgid "Add another sound"
+msgstr ""
+
+#: aphs-shortcode-editor.php:247
+msgid "Shortcode"
+msgstr ""
+
+#: aphs-shortcode-editor.php:249
+msgid "Get shortcode"
+msgstr ""
+
+#: aphs-shortcode-editor.php:252
+msgid "Add sounds before generating shortcode!"
+msgstr ""
+
+#: aphs-shortcode-editor.php:260 includes/settings.php:281
+msgid "Standard"
+msgstr ""
+
+#: aphs-shortcode-editor.php:262 includes/settings.php:283
+msgid ""
+"Add shortcode in page (add ID attribute of HTML element you want to trigger "
+"sound and SOUND_URL)"
+msgstr ""
+
+#: aphs-shortcode-editor.php:266 includes/settings.php:287
+msgid "Or target your element directly, add attribute to HTML element:"
+msgstr ""
+
+#: aphs-shortcode-editor.php:270 includes/settings.php:291
+msgid ""
+"If its a word, wrap it in span so you can add data-hover-sound attribute:"
+msgstr ""
+
+#: aphs-shortcode-editor.php:276 includes/settings.php:297
+msgid "Inline links"
+msgstr ""
+
+#: aphs-shortcode-editor.php:278 includes/settings.php:299
+msgid ""
+"Target hyperlink elements in page and adds pause / play icons to them. Add "
+"class=\"aphs-link\" to your anchor and SOUND_URL."
+msgstr ""
+
+#: aphs-shortcode-editor.php:282 includes/settings.php:303
+msgid "Example in text (this text contains links to 2 sounds):"
+msgstr ""
+
+#: aphs-shortcode-editor.php:289 includes/settings.php:310
+msgid "Predefined examples"
+msgstr ""
+
+#: aphs-shortcode-editor.php:291 includes/settings.php:312
+msgid "Toggle button (pause / play)"
+msgstr ""
+
+#: aphs-shortcode-editor.php:295 includes/settings.php:316
+msgid "Image with volume icon"
+msgstr ""
+
+#: aphs-shortcode-editor.php:299 includes/settings.php:320
+msgid "Two buttons, one for normal sound, one for slow sound"
+msgstr ""
+
+#: aphs-shortcode-editor.php:303 includes/settings.php:324
+msgid "Two buttons, one for normal sound, one for ASL / sign language video"
+msgstr ""
+
+#: includes/settings.php:32
+msgid "General"
+msgstr ""
+
+#: includes/settings.php:33
+msgid "Google Analytics"
+msgstr ""
+
+#: includes/settings.php:34
+msgid "Custom CSS"
+msgstr ""
+
+#: includes/settings.php:35
+msgid "Shortcodes"
+msgstr ""
+
+#: includes/settings.php:40
+msgid "Playback settings"
+msgstr ""
+
+#: includes/settings.php:45
+msgid "Playback method"
+msgstr ""
+
+#: includes/settings.php:52
+msgid ""
+"How to trigger audio play action. On desktop browsers it can be hover or "
+"click, on mobile its always click."
+msgstr ""
+
+#: includes/settings.php:57
+msgid "Playback rate"
+msgstr ""
+
+#: includes/settings.php:60
+msgid "Audio playback rate"
+msgstr ""
+
+#: includes/settings.php:65
+msgid "Rewind on hover"
+msgstr ""
+
+#: includes/settings.php:67
+msgid "Rewind audio on hover to beginning."
+msgstr ""
+
+#: includes/settings.php:72
+msgid "Loop sound"
+msgstr ""
+
+#: includes/settings.php:74
+msgid "Loop sound on finish."
+msgstr ""
+
+#: includes/settings.php:79
+msgid "Allow multiple sounds to play simultaneously"
+msgstr ""
+
+#: includes/settings.php:81
+msgid "Works when playback method is click."
+msgstr ""
+
+#: includes/settings.php:86
+msgid "Start sound time"
+msgstr ""
+
+#: includes/settings.php:89
+msgid ""
+"Specify sound global start time in seconds. Each sound will start at that "
+"time."
+msgstr ""
+
+#: includes/settings.php:95
+msgid "End sound time"
+msgstr ""
+
+#: includes/settings.php:98
+msgid ""
+"Specify sound global end time in seconds. Each sound will end at that time."
+msgstr ""
+
+#: includes/settings.php:105
+msgid "Override WordPress audio"
+msgstr ""
+
+#: includes/settings.php:110
+msgid "Override WordPress single audio"
+msgstr ""
+
+#: includes/settings.php:112
+msgid "Create toggle buttons from WordPress single audio embeds."
+msgstr ""
+
+#: includes/settings.php:117
+msgid "Override WordPress audio additional classes"
+msgstr ""
+
+#: includes/settings.php:120
+msgid "Specify additional classes for WordPress audio overrides."
+msgstr ""
+
+#: includes/settings.php:126
+msgid "Icons"
+msgstr ""
+
+#: includes/settings.php:131
+msgid "Toggle button Play Icon"
+msgstr ""
+
+#: includes/settings.php:137 includes/settings.php:149
+#: includes/settings.php:161 includes/settings.php:173
+#: includes/settings.php:185 includes/settings.php:197
+#: includes/settings.php:209 includes/settings.php:221
+#: includes/settings.php:233
+msgid "Upload"
+msgstr ""
+
+#: includes/settings.php:138 includes/settings.php:150
+#: includes/settings.php:162 includes/settings.php:174
+#: includes/settings.php:186 includes/settings.php:198
+#: includes/settings.php:210 includes/settings.php:222
+#: includes/settings.php:234
+msgid "Remove"
+msgstr ""
+
+#: includes/settings.php:143
+msgid "Toggle button Pause Icon"
+msgstr ""
+
+#: includes/settings.php:155
+msgid "Inline Play Icon"
+msgstr ""
+
+#: includes/settings.php:167
+msgid "Inline Pause Icon"
+msgstr ""
+
+#: includes/settings.php:179
+msgid "Image Volume Off Icon"
+msgstr ""
+
+#: includes/settings.php:191
+msgid "Image Volume On Icon"
+msgstr ""
+
+#: includes/settings.php:203
+msgid "Speech Icon"
+msgstr ""
+
+#: includes/settings.php:215
+msgid "Speech Slow Icon"
+msgstr ""
+
+#: includes/settings.php:227
+msgid "Speech Aid Icon"
+msgstr ""
+
+#: includes/settings.php:246
+msgid ""
+"Activate Google Analytics so you can track click on sounds inside Google "
+"Analytics dashboard."
+msgstr ""
+
+#: includes/settings.php:251
+msgid "Use Google Analytics"
+msgstr ""
+
+#: includes/settings.php:254
+msgid "no"
+msgstr ""
+
+#: includes/settings.php:255
+msgid "yes"
+msgstr ""
+
+#: includes/settings.php:261
+msgid "Google Analytics tracking ID"
+msgstr ""
+
+#: includes/settings.php:264
+#, php-format
+msgid "Get tracking ID <a href=\"%s\" target=\"_blank\">here</a>"
+msgstr ""
+
+#: includes/settings.php:274
+msgid "Add custom CSS"
+msgstr ""
+
+#: includes/settings.php:342
+msgid "Save Changes"
+msgstr ""

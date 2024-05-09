@@ -1,0 +1,1064 @@
+# SGS XMLRPC Disable Service
+<Files xmlrpc.php>
+	order deny,allow
+	deny from all
+</Files>
+# SGS XMLRPC Disable Service END
+# HTTPS forced by SG-Optimizer
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+# END HTTPS
+
+SetEnv PHPRC /home/customer/www/thewellnessway.com/public_html/php.ini
+Header always set Content-Security-Policy: upgrade-insecure-requests
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+# 301 --- https://www.thewellnessway.com/find-a-clinic-near-me/ => https://clinics.thewellnessway.com
+RewriteCond %{HTTP_HOST} ^www\.thewellnessway\.com$
+RewriteRule ^find\-a\-clinic\-near\-me/$ https://clinics.thewellnessway.com/? [L,R=301]
+
+# 301 --- https://greenbaywi.thewellnessway.com/ => https://clinics.thewellnessway.com/wi/greenbay/wellness-center-1.html
+RewriteCond %{HTTP_HOST} ^greenbaywi\.thewellnessway\.com$
+RewriteCond %{HTTP_HOST} ^www.greenbaywi.thewellnessway.com [NC]
+RewriteRule ^$ https://clinics.thewellnessway.com/wi/greenbay/wellness\-center\-1.html? [L,R=301]
+
+# 301 --- https://appletonwi.thewellnessway.com/ => https://clinics.thewellnessway.com/wi/appleton/wellness-center-2.html
+RewriteCond %{HTTP_HOST} ^appletonwi\.thewellnessway\.com$
+RewriteCond %{HTTP_HOST} ^www.appletonwi.thewellnessway.com [NC]
+RewriteRule ^$ https://clinics.thewellnessway.com/wi/appleton/wellness\-center\-2.html? [L,R=301]
+
+
+# 301 --- https://mequonwi.thewellnessway.com/ => https://clinics.thewellnessway.com/wi/thiensville/wellness-center-3.html
+RewriteCond %{HTTP_HOST} ^mequonwi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/wi/thiensville/wellness\-center\-3.html? [L,R=301]
+
+# 301 --- https://waukeshawi.thewellnessway.com/ => https://clinics.thewellnessway.com/wi/pewaukee/wellness-center-4.html
+RewriteCond %{HTTP_HOST} ^waukeshawi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/wi/pewaukee/wellness\-center\-4.html? [L,R=301]
+
+# 301 --- https://flatheadvalleymt.thewellnessway.com/ => https://clinics.thewellnessway.com/mt/kalispell/wellness-center-5.html
+RewriteCond %{HTTP_HOST} ^flatheadvalleymt\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mt/kalispell/wellness\-center\-5.html? [L,R=301]
+
+# 301 --- https://fonddulacwi.thewellnessway.com/ => https://clinics.thewellnessway.com/wi/fonddulac/wellness-center-6.html
+RewriteCond %{HTTP_HOST} ^fonddulacwi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/wi/fonddulac/wellness\-center\-6.html? [L,R=301]
+
+
+# 301 --- https://ironmountainmi.thewellnessway.com/ => https://clinics.thewellnessway.com/mi/ironmountain/wellness-center-11.html
+RewriteCond %{HTTP_HOST} ^ironmountainmi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mi/ironmountain/wellness\-center\-11.html? [L,R=301]
+
+# 301 --- https://springvilleal.thewellnessway.com/ => https://clinics.thewellnessway.com/al/springville/wellness-center-12.html
+RewriteCond %{HTTP_HOST} ^springvilleal\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/al/springville/wellness\-center\-12.html? [L,R=301]
+
+# 301 --- https://beavertonor.thewellnessway.com/ => https://clinics.thewellnessway.com/or/beaverton/wellness-center-13.html
+RewriteCond %{HTTP_HOST} ^beavertonor\.thewellnessway\.com$
+RewriteCond %{HTTP_HOST} ^www.beavertonor.thewellnessway.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/or/beaverton/wellness\-center\-13.html? [L,R=301]
+
+# 301 --- https://kiheihi.thewellnessway.com/ => https://clinics.thewellnessway.com/hi/kihei/wellness-center-14.html
+RewriteCond %{HTTP_HOST} ^kiheihi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/hi/kihei/wellness\-center\-14.html? [L,R=301]
+
+# 301 --- https://madisonms.thewellnessway.com/ => https://clinics.thewellnessway.com/ms/madison/wellness-center-15.html
+RewriteCond %{HTTP_HOST} ^madisonms\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/ms/madison/wellness\-center\-15.html? [L,R=301]
+
+
+# 301 --- https://coloradospringsco.thewellnessway.com/ => https://clinics.thewellnessway.com/co/coloradosprings/wellness-center-17.html
+RewriteCond %{HTTP_HOST} ^coloradospringsco\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/co/coloradosprings/wellness\-center\-17.html? [L,R=301]
+
+# 301 --- https://rockfordil.thewellnessway.com/ => https://clinics.thewellnessway.com/il/rockford/wellness-center-19.html
+RewriteCond %{HTTP_HOST} ^rockfordil\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/il/rockford/wellness\-center\-19.html? [L,R=301]
+
+
+# 301 --- https://columbiamo.thewellnessway.com/ => https://clinics.thewellnessway.com/mo/columbia/wellness-center-21.html
+RewriteCond %{HTTP_HOST} ^columbiamo\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mo/columbia/wellness\-center\-21.html? [L,R=301]
+
+# 301 --- https://mtpleasantsc.thewellnessway.com/ => https://clinics.thewellnessway.com/sc/mt-pleasant/wellness-center-22.html
+RewriteCond %{HTTP_HOST} ^mtpleasantsc\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/sc/mt\-pleasant/wellness\-center\-22.html? [L,R=301]
+
+
+# 301 --- https://centennialco.thewellnessway.com/ => https://clinics.thewellnessway.com/co/englewood/wellness-center-25.html
+RewriteCond %{HTTP_HOST} ^centennialco\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/co/englewood/wellness\-center\-25.html? [L,R=301]
+
+# 301 --- https://bloomingtonmn.thewellnessway.com/ => https://clinics.thewellnessway.com/mn/bloomington/wellness-center-26.html
+RewriteCond %{HTTP_HOST} ^bloomingtonmn\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mn/bloomington/wellness\-center\-26.html? [L,R=301]
+
+# 301 --- https://wesleychapelfl.thewellnessway.com/ => https://clinics.thewellnessway.com/fl/wesleychapel/wellness-center-27.html
+RewriteCond %{HTTP_HOST} ^wesleychapelfl\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/fl/wesleychapel/wellness\-center\-27.html? [L,R=301]
+
+
+# 301 --- https://louisvilleco.thewellnessway.com/ => https://clinics.thewellnessway.com/co/louisville/wellness-center-29.html
+RewriteCond %{HTTP_HOST} ^louisvilleco\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/co/louisville/wellness\-center\-29.html? [L,R=301]
+
+
+# 301 --- https://largofl.thewellnessway.com/ => https://clinics.thewellnessway.com/fl/largo/wellness-center-32.html
+RewriteCond %{HTTP_HOST} ^largofl\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/fl/largo/wellness\-center\-32.html? [L,R=301]
+
+# 301 --- https://franklintn.thewellnessway.com/ => https://clinics.thewellnessway.com/tn/franklin/wellness-center-33.html
+RewriteCond %{HTTP_HOST} ^franklintn\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/tn/franklin/wellness\-center\-33.html? [L,R=301]
+
+# 301 --- https://charlottenc.thewellnessway.com/ => https://clinics.thewellnessway.com/nc/charlotte/wellness-center-36.html
+RewriteCond %{HTTP_HOST} ^charlottenc\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/nc/charlotte/wellness\-center\-36.html? [L,R=301]
+
+# 301 --- https://willistonnd.thewellnessway.com/ => https://clinics.thewellnessway.com/nd/williston/wellness-center-37.html
+RewriteCond %{HTTP_HOST} ^willistonnd\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/nd/williston/wellness\-center\-37.html? [L,R=301]
+
+# 301 --- https://lincolnne.thewellnessway.com/ => https://clinics.thewellnessway.com/ne/lincoln/wellness-center-38.html
+RewriteCond %{HTTP_HOST} ^lincolnne\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/ne/lincoln/wellness\-center\-38.html? [L,R=301]
+
+# 301 --- https://mandannd.thewellnessway.com/ => https://clinics.thewellnessway.com/nd/mandan/wellness-center-41.html
+RewriteCond %{HTTP_HOST} ^mandannd\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/nd/mandan/wellness\-center\-41.html? [L,R=301]
+
+# 301 --- https://worcesterma.thewellnessway.com/ => https://clinics.thewellnessway.com/ma/worcester/wellness-center-42.html
+RewriteCond %{HTTP_HOST} ^.*worcesterma\.thewellnessway\.com.*$
+RewriteRule ^$ https://clinics.thewellnessway.com/ma/worcester/wellness\-center\-42.html? [L,R=301]
+
+# 301 --- https://yorkvilleil.thewellnessway.com/ => https://clinics.thewellnessway.com/il/yorkville/wellness-center-43.html
+RewriteCond %{HTTP_HOST} ^yorkvilleil\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/il/yorkville/wellness\-center\-43.html? [L,R=301]
+
+# 301 --- https://escanabami.thewellnessway.com/ => https://clinics.thewellnessway.com/mi/escanaba/wellness-center-44.html
+RewriteCond %{HTTP_HOST} ^escanabami\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mi/escanaba/wellness\-center\-44.html? [L,R=301]
+
+# 301 --- https://knoxvilletn.thewellnessway.com/ => https://clinics.thewellnessway.com/tn/knoxville/wellness-center-45.html
+RewriteCond %{HTTP_HOST} ^knoxvilletn\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/tn/knoxville/wellness\-center\-45.html? [L,R=301]
+
+# 301 --- https://burrridgeil.thewellnessway.com/ => https://clinics.thewellnessway.com/il/burrridge/wellness-center-47.html
+RewriteCond %{HTTP_HOST} ^burrridgeil\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/il/burrridge/wellness\-center\-47.html? [L,R=301]
+
+# 301 --- https://holladayut.thewellnessway.com/ => https://clinics.thewellnessway.com/ut/holladay/wellness-center-48.html
+RewriteCond %{HTTP_HOST} ^holladayut\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/ut/holladay/wellness\-center\-48.html? [L,R=301]
+
+
+# 301 --- https://murfreesborotn.thewellnessway.com/ => https://clinics.thewellnessway.com/tn/murfreesboro/wellness-center-52.html
+RewriteCond %{HTTP_HOST} ^murfreesborotn\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/tn/murfreesboro/wellness\-center\-52.html? [L,R=301]
+
+# 301 --- https://adaoh.thewellnessway.com/ => https://clinics.thewellnessway.com/oh/ada/wellness-center-53.html
+RewriteCond %{HTTP_HOST} ^adaoh\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/oh/ada/wellness\-center\-53.html? [L,R=301]
+
+# 301 --- https://woodburymn.thewellnessway.com/ => https://clinics.thewellnessway.com/mn/woodbury/wellness-center-55.html
+RewriteCond %{HTTP_HOST} ^woodburymn\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mn/woodbury/wellness\-center\-55.html? [L,R=301]
+
+# 301 --- https://pensacolafl.thewellnessway.com/ => https://clinics.thewellnessway.com/fl/pensacola/wellness-center-56.html
+RewriteCond %{HTTP_HOST} ^pensacolafl\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/fl/pensacola/wellness\-center\-56.html? [L,R=301]
+
+# 301 --- https://farraguttn.thewellnessway.com/ => https://clinics.thewellnessway.com/tn/farragut/wellness-center-58.html
+RewriteCond %{HTTP_HOST} ^farraguttn\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/tn/farragut/wellness\-center\-58.html? [L,R=301]
+
+# 301 --- https://jacksonvillefl.thewellnessway.com => https://clinics.thewellnessway.com/fl/jacksonville/wellness-center-59.html
+RewriteCond %{HTTP_HOST} ^jacksonvillefl\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/fl/jacksonville/wellness\-center\-59.html? [L,R=301]
+
+# 301 --- https://westdesmoinesia.thewellnessway.com/ => https://clinics.thewellnessway.com/ia/westdesmoines/wellness-center-60.html
+RewriteCond %{HTTP_HOST} ^westdesmoinesia\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/ia/westdesmoines/wellness\-center\-60.html? [L,R=301]
+
+# 301 --- https://southcharlotte.thewellnessway.com/ => https://clinics.thewellnessway.com/nc/charlotte/wellness-center-61.html
+RewriteCond %{HTTP_HOST} ^southcharlotte\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/nc/charlotte/wellness\-center\-61.html? [L,R=301]
+
+# 301 --- https://oxfordmi.thewellnessway.com/ => https://clinics.thewellnessway.com/mi/oxford/wellness-center-62.html
+RewriteCond %{HTTP_HOST} ^oxfordmi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mi/oxford/wellness\-center\-62.html? [L,R=301]
+
+# 301 --- https://granvilleoh.thewellnessway.com/ => https://clinics.thewellnessway.com/oh/granville/wellness-center-63.html
+RewriteCond %{HTTP_HOST} ^granvilleoh\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/oh/granville/wellness\-center\-63.html? [L,R=301]
+
+# 301 --- https://danvilleky.thewellnessway.com/ => https://clinics.thewellnessway.com/ky/danville/wellness-center-64.html
+RewriteCond %{HTTP_HOST} ^danvilleky\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/ky/danville/wellness\-center\-64.html? [L,R=301]
+
+# 301 --- https://annarbormi.thewellnessway.com/ => https://clinics.thewellnessway.com/mi/annarbor/wellness-center-65.html
+RewriteCond %{HTTP_HOST} ^annarbormi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mi/annarbor/wellness\-center\-65.html? [L,R=301]
+
+# 301 --- https://richmondmi.thewellnessway.com/ => https://clinics.thewellnessway.com/mi/richmond/wellness-center-66.html
+RewriteCond %{HTTP_HOST} ^richmondmi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mi/richmond/wellness\-center\-66.html? [L,R=301]
+
+# 301 --- https://winneconnewi.thewellnessway.com/ => https://clinics.thewellnessway.com/wi/winneconne/wellness-center-67.html
+RewriteCond %{HTTP_HOST} ^winneconnewi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/wi/winneconne/wellness\-center\-67.html? [L,R=301]
+
+# 301 --- https://eauclairewi.thewellnessway.com/ => https://clinics.thewellnessway.com/wi/eauclaire/wellness-center-68.html
+RewriteCond %{HTTP_HOST} ^eauclairewi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/wi/eauclaire/wellness\-center\-68.html? [L,R=301]
+
+# 301 --- https://springtx.thewellnessway.com/ => https://clinics.thewellnessway.com/tx/spring/wellness-center-69.html
+RewriteCond %{HTTP_HOST} ^springtx\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/tx/spring/wellness\-center\-69.html? [L,R=301]
+
+# 301 --- https://seymourmo.thewellnessway.com/ => https://clinics.thewellnessway.com/mo/seymour/wellness-center-70.html
+RewriteCond %{HTTP_HOST} ^seymourmo\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mo/seymour/wellness\-center\-70.html? [L,R=301]
+
+# 301 --- https://aurorail.thewellnessway.com/ => https://clinics.thewellnessway.com/il/aurora/wellness-center-71.html
+RewriteCond %{HTTP_HOST} ^aurorail\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/il/aurora/wellness\-center\-71.html? [L,R=301]
+
+# 301 --- https://northphoenixaz.thewellnessway.com/ => https://clinics.thewellnessway.com/az/northphoenix/wellness-center-72.html
+RewriteCond %{HTTP_HOST} ^northphoenixaz\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/az/northphoenix/wellness\-center\-72.html? [L,R=301]
+
+# 301 --- https://galwayie.thewellnessway.com/ => https://clinics.thewellnessway.com/ie-g/galway/wellness-center-73.html
+RewriteCond %{HTTP_HOST} ^galwayie\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/ie\-g/galway/wellness\-center\-73.html? [L,R=301]
+
+# 301 --- https://acworthga.thewellnessway.com/ => https://clinics.thewellnessway.com/ga/acworth/wellness-center-54.html
+RewriteCond %{HTTP_HOST} ^acworthga\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/ga/acworth/wellness\-center\-54.html? [L,R=301]
+
+# 301 --- https://fitchburgwi.thewellnessway.com/ => https://clinics.thewellnessway.com/wi/fitchburg/wellness-center-74.html
+RewriteCond %{HTTP_HOST} ^fitchburgwi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/wi/fitchburg/wellness\-center\-74.html? [L,R=301]
+
+# 301 --- https://grandrapidsmi.thewellnessway.com/ => https://clinics.thewellnessway.com/mi/grandrapids/wellness-center-75.html
+RewriteCond %{HTTP_HOST} ^grandrapidsmi\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/mi/grandrapids/wellness\-center\-75.html? [L,R=301]
+
+# 301 --- https://shipshewanain.thewellnessway.com => https://clinics.thewellnessway.com/in/shipshewana/wellness-center-76.html
+RewriteCond %{HTTP_HOST} ^shipshewanain\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/in/shipshewana/wellness\-center\-76.html? [L,R=301]
+
+
+# 301 --- https://www.thewellnessway.com/detox-for-inflammation/ => https://www.thewellnessway.com/restore-your-health/
+RewriteRule ^detox\-for\-inflammation/$ /restore\-your\-health/? [L,R=301]
+
+
+# 301 --- https://pensacolafl.thewellnessway.com => https://thewellnessway.com/
+RewriteCond %{HTTP_HOST} ^pensacolafl\.thewellnessway\.com$
+RewriteRule ^$ https://thewellnessway.com/? [L,R=301]
+
+
+# 301 --- https://thewellnessway.com/jobs/ => https://www.thewellnessway.com/careers/
+RewriteCond %{HTTP_HOST} ^thewellnessway\.com$
+RewriteRule ^jobs/$ https://www.thewellnessway.com/careers/? [L,R=301]
+
+
+# 301 --- https://thewellnessway.com/who-should-fear-the-coronavirus => https://thewellnessway.com/articles/
+RewriteRule ^who\-should\-fear\-the\-coronavirus$ /articles/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/talking-to-your-kids-about-coronavirus/ => https://thewellnessway.com/articles/
+RewriteRule ^talking\-to\-your\-kids\-about\-coronavirus/$ /articles/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/talking-to-your-kids-about-coronavirus/?fbclid=IwAR37pQRqhBfz9_uqIXL3xXAfKwyqwlgdz33-eiVuiYWMIA28NnWukrbZUek => https://thewellnessway.com/articles/
+RewriteCond %{QUERY_STRING} (^|&)fbclid\=IwAR37pQRqhBfz9_uqIXL3xXAfKwyqwlgdz33\-eiVuiYWMIA28NnWukrbZUek($|&)
+RewriteRule ^talking\-to\-your\-kids\-about\-coronavirus/$ /articles/? [L,R=301]
+
+
+# 301 --- https://thewellnessway.com/recipes/salads/page/2/ => https://thewellnessway.com/category/recipes/salads/
+RewriteRule ^recipes/salads/page/2/$ /category/recipes/salads/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/embarrassed-to-ask-a-doctor/thewellnessway => https://thewellnessway.com/embarrassed-to-ask-a-doctor/
+RewriteRule ^embarrassed\-to\-ask\-a\-doctor/thewellnessway$ /embarrassed\-to\-ask\-a\-doctor/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/dairy-free-ice-cream/thewellnessway => https://thewellnessway.com/dairy-free-ice-cream/
+RewriteRule ^dairy\-free\-ice\-cream/thewellnessway$ /dairy\-free\-ice\-cream/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/balancing-the-pain-of-heartburn/thewellnessway => https://thewellnessway.com/balancing-the-pain-of-heartburn/
+RewriteRule ^balancing\-the\-pain\-of\-heartburn/thewellnessway$ /balancing\-the\-pain\-of\-heartburn/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/radiofrequency-radiation-and-cell-phones/thewellnessway => https://thewellnessway.com/radiofrequency-radiation-and-cell-phones/
+RewriteRule ^radiofrequency\-radiation\-and\-cell\-phones/thewellnessway$ /radiofrequency\-radiation\-and\-cell\-phones/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/xylitol/discoverchiropractic => https://thewellnessway.com/chiropractic-care/
+RewriteRule ^xylitol/discoverchiropractic$ /chiropractic\-care/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/desserts/page/3/ => https://thewellnessway.com/category/recipes/desserts/
+RewriteRule ^recipes/desserts/page/3/$ /category/recipes/desserts/? [L,R=301]
+
+# 301 --- https://southcharlotte.thewellnessway.com/ => https://southcharlottenc.thewellnessway.com/
+RewriteCond %{HTTP_HOST} ^southcharlotte\.thewellnessway\.com$
+RewriteRule ^$ https://southcharlottenc.thewellnessway.com/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/who-should-fear-the-coronavirus/ => https://thewellnessway.com/
+RewriteRule ^who\-should\-fear\-the\-coronavirus/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/talking-to-your-kids-about-coronavirus => https://thewellnessway.com/
+RewriteRule ^talking\-to\-your\-kids\-about\-coronavirus$ /? [L,R=301]
+
+
+# 301 --- https://thewellnessway.com/laboratory-diagnostics/page/3/ => https://thewellnessway.com/diagnostic-tests/page/3/
+RewriteRule ^laboratory\-diagnostics/page/3/$ /diagnostic\-tests/page/3/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/womens-wellness-summit/ => https://thewellnessway.com/
+RewriteRule ^womens\-wellness\-summit/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/Recipes/Main-Dishes/page/2/ => https://thewellnessway.com/healthy-recipes/main-dishes/
+RewriteRule ^Recipes/Main\-Dishes/page/2/$ /healthy\-recipes/main\-dishes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/Recipes/Main-Dishes/page/3/ => https://thewellnessway.com/healthy-recipes/main-dishes/
+RewriteRule ^Recipes/Main\-Dishes/page/3/$ /healthy\-recipes/main\-dishes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/Recipes/Main-Dishes/ => https://thewellnessway.com/healthy-recipes/main-dishes/
+RewriteRule ^Recipes/Main\-Dishes/$ /healthy\-recipes/main\-dishes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/tag/reduce-stress/feed/ => https://thewellnessway.com/category/stress-reduction/
+RewriteRule ^tag/reduce\-stress/feed/$ /category/stress\-reduction/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/chiropractor-near-me/feed/ => https://thewellnessway.com/find-a-clinic-near-me/
+RewriteRule ^chiropractor\-near\-me/feed/$ /find\-a\-clinic\-near\-me/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/?page_id=5088 => https://thewellnessway.com/
+RewriteCond %{QUERY_STRING} (^|&)page_id\=5088($|&)
+RewriteRule ^$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/laboratory-diagnostics/page/2/ => https://thewellnessway.com/diagnostic-tests/page/2/
+RewriteRule ^laboratory\-diagnostics/page/2/$ /diagnostic\-tests/page/2/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/desserts/page/2/ => https://thewellnessway.com/category/recipes/desserts/
+RewriteRule ^recipes/desserts/page/2/$ /category/recipes/desserts/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/Recipes/snacks/page/2/ => https://thewellnessway.com/category/recipes/snacks/
+RewriteRule ^Recipes/snacks/page/2/$ /category/recipes/snacks/? [L,R=301]
+
+
+
+# 301 --- https://www.thewellnessway.com/forms/ => https://www.thewellnessway.com/
+RewriteRule ^forms/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/forms/healthy-desserts2016.pdf => https://thewellnessway.com/forms/healthy-desserts-book.pdf
+RewriteRule ^forms/healthy\-desserts2016\.pdf$ /forms/healthy\-desserts\-book.pdf? [L,R=301]
+
+# 301 --- https://thewellnessway.com/forms/clinics/ => https://thewellnessway.com/find-a-clinic-near-me/
+RewriteRule ^forms/clinics/$ /find\-a\-clinic\-near\-me/? [L,R=301]
+
+
+# 301 --- https://thewellnessway.com/hormone-balancing/page/2/ => https://thewellnessway.com/hormone-testing/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^hormone\-balancing/page/2/$ /hormone\-testing/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/main-dishes/page/3/ => https://thewellnessway.com/category/recipes/main-dishes/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes/main\-dishes/page/3/$ /category/recipes/main\-dishes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/clinics/feed/ => https://thewellnessway.com/find-a-clinic-near-me/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^clinics/feed/$ /find\-a\-clinic\-near\-me/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/Recipes/main-dishes/page/3/ => https://thewellnessway.com/category/recipes/main-dishes/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^Recipes/main\-dishes/page/3/$ /category/recipes/main\-dishes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/Recipes/Breakfast/page/2/ => https://thewellnessway.com/category/recipes/breakfast/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^Recipes/Breakfast/page/2/$ /category/recipes/breakfast/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/Recipes/main-dishes/page/2/ => https://thewellnessway.com/category/recipes/main-dishes/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^Recipes/main\-dishes/page/2/$ /category/recipes/main\-dishes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/forms/willistonnd/williston-health-information.pdf => https://willistonnd.thewellnessway.com/forms/willistonnd/health-history.pdf
+RewriteCond %{HTTP_HOST} ^thewellnessway\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/willistonnd/williston\-health\-information\.pdf$ https://willistonnd.thewellnessway.com/forms/willistonnd/health\-history.pdf? [L,R=301]
+
+# 301 --- https://thewellnessway.com/forms/appleton/appleton-new-patient.pdf => https://www.mychirotouch.com/patientintake/?clientid=TWWA0001
+RewriteCond %{HTTP_HOST} ^thewellnessway\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/appleton/appleton\-new\-patient\.pdf$ https://www.mychirotouch.com/patientintake/?clientid=TWWA0001 [L,R=301]
+
+# 301 --- https://thewellnessway.com/forms/missouri-chiro-talk-notes.pdf => https://columbiamo.thewellnessway.com/
+RewriteCond %{HTTP_HOST} ^thewellnessway\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/missouri\-chiro\-talk\-notes\.pdf$ https://columbiamo.thewellnessway.com/? [L,R=301]
+
+
+
+# 301 --- https://thewellnessway.com/forms/healthy-desserts2014.pdf => https://thewellnessway.com/forms/healthy-desserts2016.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/healthy\-desserts2014\.pdf$ /forms/healthy\-desserts2016.pdf? [L,R=301]
+
+
+
+# 301 --- https://thewellnessway.com/forms/rockisland/ => https://thewellnessway.com/find-a-clinic-near-me/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/rockisland/$ /find\-a\-clinic\-near\-me/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/forms/mandannd/mandan-signature-pages.pdf => https://mandannd.thewellnessway.com/forms/mandannd/signature-pages.pdf
+RewriteCond %{HTTP_HOST} ^thewellnessway\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/mandannd/mandan\-signature\-pages\.pdf$ https://mandannd.thewellnessway.com/forms/mandannd/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/main-dishes/page/4/ => https://thewellnessway.com/healthy-recipes/main-dishes/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes/main\-dishes/page/4/$ /healthy\-recipes/main\-dishes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/Recipes/Desserts/page/2/ => https://thewellnessway.com/category/recipes/desserts/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^Recipes/Desserts/page/2/$ /category/recipes/desserts/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/think-differently/ => https://thewellnessway.com
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^think\-differently/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/cholesterol-immune-systems-greatest-weapon/ => https://thewellnessway.com/devil-angel-or-neither/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^cholesterol\-immune\-systems\-greatest\-weapon/$ /devil\-angel\-or\-neither/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/laboratory-diagnostics => https://thewellnessway.com/diagnostic-tests/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^laboratory\-diagnostics$ /diagnostic\-tests/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/forms/willistonnd/williston-pediatric-health-information.docx => https://willistonnd.thewellnessway.com/forms/willistonnd/pediatric-health-information.pdf
+RewriteCond %{HTTP_HOST} ^thewellnessway\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/willistonnd/williston\-pediatric\-health\-information\.docx$ https://willistonnd.thewellnessway.com/forms/willistonnd/pediatric\-health\-information.pdf? [L,R=301]
+
+
+# 301 --- https://thewellnessway.com/forms/willistonnd/williston-personal-health-informationold.pdf => https://willistonnd.thewellnessway.com/forms/willistonnd/health-history.pdf
+RewriteCond %{HTTP_HOST} ^thewellnessway\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/willistonnd/williston\-personal\-health\-informationold\.pdf$ https://willistonnd.thewellnessway.com/forms/willistonnd/health\-history.pdf? [L,R=301]
+
+
+# 301 --- https://thewellnessway.com/links => https://linktr.ee/thewellnessway
+RewriteCond %{HTTP_HOST} ^thewellnessway\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^links$ https://linktr.ee/thewellnessway? [L,R=301]
+
+# 301 --- https://thewellnessway.com/hormone-balancing => https://thewellnessway.com/hormone-testing/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^hormone\-balancing$ /hormone\-testing/? [L,R=301]
+
+
+
+# 301 --- https://thewellnessway.com/detoxification => https://thewellnessway.com/detox-for-inflammation/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^detoxification$ /detox\-for\-inflammation/? [L,R=301]
+
+
+# 301 --- https://thewellnessway.com/chiropractor-near-me/ => https://thewellnessway.com/find-a-clinic-near-me/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^chiropractor\-near\-me/$ /find\-a\-clinic\-near\-me/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/nutrition-programs => https://thewellnessway.com/personalized-nutrition/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^nutrition\-programs$ /personalized\-nutrition/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/nutrition-programs/page/4/ => https://thewellnessway.com/personalized-nutrition/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^nutrition\-programs/page/4/$ /personalized\-nutrition/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes => https://thewellnessway.com/healthy-recipes/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes$ /healthy\-recipes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/oneclick-registration/ => https://thewellnessway.com
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^oneclick\-registration/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/3/ => https://thewellnessway.com/healthy-recipes/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes/3/$ /healthy\-recipes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/metal-head/ => https://thewellnessway.com/are-you-a-metal-head/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^metal\-head/$ /are\-you\-a\-metal\-head/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/Recipes/ => https://thewellnessway.com/healthy-recipes/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^Recipes/$ /healthy\-recipes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/breakfast/page/20/ => https://thewellnessway.com/category/recipes/breakfast/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes/breakfast/page/20/$ /category/recipes/breakfast/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/breakfast/page/5/ => https://thewellnessway.com/category/recipes/breakfast/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes/breakfast/page/5/$ /category/recipes/breakfast/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/breakfast/page/4/ => https://thewellnessway.com/category/recipes/breakfast/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes/breakfast/page/4/$ /category/recipes/breakfast/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/truth-heart-disease-statin-drugs/ => https://thewellnessway.com/reduce-stress/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^truth\-heart\-disease\-statin\-drugs/$ /reduce\-stress/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/author/seobrand/ => https://thewellnessway.com
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^author/seobrand/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/stress-reduction => https://thewellnessway.com/reduce-stress/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^stress\-reduction$ /reduce\-stress/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/pediatrics => https://thewellnessway.com/pediatric-chiropractor/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^pediatrics$ /pediatric\-chiropractor/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/main-dishes/page/2/ => https://thewellnessway.com/category/recipes/main-dishes/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes/main\-dishes/page/2/$ /category/recipes/main\-dishes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/oneclick-registration-3/ => https://thewellnessway.com/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^oneclick\-registration\-3/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/live-event-2/ => https://thewellnessway.com/chiropractic-care/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^live\-event\-2/$ /chiropractic\-care/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/oneclick-registration-2/ => https://thewellnessway.com/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^oneclick\-registration\-2/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/page/11/ => https://thewellnessway.com/healthy-recipes/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes/page/11/$ /healthy\-recipes/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/breakfast/page/2/ => https://thewellnessway.com/category/recipes/breakfast/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes/breakfast/page/2/$ /category/recipes/breakfast/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/location/the-wellness-way-green-bay/ => https://thewellnessway.com/chiropractor-near-me/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^location/the\-wellness\-way\-green\-bay/$ /chiropractor\-near\-me/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/episode-47-navigating-menopause/ => https://thewellnessway.com
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^episode\-47\-navigating\-menopause/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/event-replay/ => https://thewellnessway.com
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^event\-replay/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/idisagree-event/ => https://thewellnessway.com
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^idisagree\-event/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/tag/reduce-stress/ => https://thewellnessway.com/reduce-stress/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^tag/reduce\-stress/$ /reduce\-stress/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/episode-1-shut-your-pie-hole/ => https://thewellnessway.com
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^episode\-1\-shut\-your\-pie\-hole/$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/under-construction/clinics => https://thewellnessway.com/chiropractor-near-me/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^under\-construction/clinics$ /chiropractor\-near\-me/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/think-differently/connect => https://thewellnessway.com/chiropractor-near-me/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^think\-differently/connect$ /chiropractor\-near\-me/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/quiz-results/clinics => https://thewellnessway.com/chiropractor-near-me/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^quiz\-results/clinics$ /chiropractor\-near\-me/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/ever-had-a-gut-feeling/ => https://thewellnessway.com/articles/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^ever\-had\-a\-gut\-feeling/$ /articles/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/freezer-meals/ => https://thewellnessway.com/articles/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^freezer\-meals/$ /articles/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/home/clinics => https://thewellnessway.com/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^home/clinics$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/indulging-without-disaster/ => https://thewellnessway.com/articles/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^indulging\-without\-disaster/$ /articles/? [L,R=301]
+
+# 301 --- http://thewellnessway.com/idisagree1 => http://thewellnessway.com/idisagree
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^idisagree1$ /idisagree? [L,R=301]
+
+# 301 --- http://thewellnessway.com/idisagree1/ => thewellnessway.com/idisagree/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^idisagree1/$ /thewellnessway.com/idisagree/? [L,R=301]
+
+# 301 --- http://thewellnessway.com/i-disagree/ => http://thewellnessway.com/idisagree/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^i\-disagree/$ /idisagree/? [L,R=301]
+
+# 301 --- https://appletonwi.thewellnessway.com/new-patients => https://appletonwi.thewellnessway.com/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^new\-patients$ /? [L,R=301]
+
+# 301 --- https://poplarvillems.thewellnessway.com/our-doctors => https://poplarvillems.thewellnessway.com
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^our\-doctors$ /? [L,R=301]
+
+# 301 --- https://thewellnessway.com/chickenstrips/ => https://thewellnessway.com/chicken-strips/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^chickenstrips/$ /chicken\-strips/? [L,R=301]
+
+
+# 301 --- https://thewellnessway.com/devil-angel-neither/ => https://thewellnessway.com/devil-angel-or-neither/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^devil\-angel\-neither/$ /devil\-angel\-or\-neither/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/episode-1-shut-your-pie-hole => https://podcasts.apple.com/us/podcast/episode-1-shut-your-pie-hole/id1336049791?i=1000399979076
+RewriteCond %{HTTP_HOST} ^thewellnessway\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^episode\-1\-shut\-your\-pie\-hole$ https://podcasts.apple.com/us/podcast/episode\-1\-shut\-your\-pie\-hole/id1336049791?i=1000399979076 [L,R=301]
+
+# 301 --- https://thewellnessway.com/episode-47-navigating-menopause => https://podcasts.apple.com/us/podcast/episode-47-navigating-menopause-the-hormone-connection/id1336049791?i=1000411035803
+RewriteCond %{HTTP_HOST} ^thewellnessway\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^episode\-47\-navigating\-menopause$ https://podcasts.apple.com/us/podcast/episode\-47\-navigating\-menopause\-the\-hormone\-connection/id1336049791?i=1000411035803 [L,R=301]
+
+# 301 --- https://thewellnessway.com/chiropractic/ => https://thewellnessway.com/chiropractic-care/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^chiropractic/$ /chiropractic\-care/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/stress-reduction/ => https://thewellnessway.com/reduce-stress/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^stress\-reduction/$ /reduce\-stress/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/hormone-balancing/ => https://thewellnessway.com/hormone-testing/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^hormone\-balancing/$ /hormone\-testing/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/detoxification/ => https://thewellnessway.com/detox-for-inflammation/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^detoxification/$ /detox\-for\-inflammation/? [L,R=301]
+
+
+
+# 301 --- https://thewellnessway.com/nutrition-programs/ => https://thewellnessway.com/personalized-nutrition/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^nutrition\-programs/$ /personalized\-nutrition/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/laboratory-diagnostics/ => https://thewellnessway.com/diagnostic-tests/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^laboratory\-diagnostics/$ /diagnostic\-tests/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/pediatrics/ => https://thewellnessway.com/pediatric-chiropractor/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^pediatrics/$ /pediatric\-chiropractor/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/doctors-program/ => https://thewellnessway.com/chiropractor-training/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^doctors\-program/$ /chiropractor\-training/? [L,R=301]
+
+# 301 --- https://thewellnessway.com/recipes/ => https://thewellnessway.com/healthy-recipes/
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^recipes/$ /healthy\-recipes/? [L,R=301]
+
+# 301 --- https://appletonwi.thewellnessway.com/forms/appleton/appleton-pediatric-history.pdf => https://appletonwi.thewellnessway.com/forms/appleton/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/appleton/appleton\-pediatric\-history\.pdf$ /forms/appleton/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://appletonwi.thewellnessway.com/forms/appleton/appleton-signature-pages.pdf => https://appletonwi.thewellnessway.com/forms/appleton/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/appleton/appleton\-signature\-pages\.pdf$ /forms/appleton/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://greenbaywi.thewellnessway.com/forms/greenbay/greenbay-pediatric-history.pdf => https://greenbaywi.thewellnessway.com/forms/greenbay/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/greenbay/greenbay\-pediatric\-history\.pdf$ /forms/greenbay/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://greenbaywi.thewellnessway.com/forms/greenbay/greenbay-signature-pages.pdf => https://greenbaywi.thewellnessway.com/forms/greenbay/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/greenbay/greenbay\-signature\-pages\.pdf$ /forms/greenbay/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://mequonwi.thewellnessway.com/forms/mequon/mequon-pediatric-historyy.pdf => https://mequonwi.thewellnessway.com/forms/mequon/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/mequon/mequon\-pediatric\-historyy\.pdf$ /forms/mequon/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://mequonwi.thewellnessway.com/forms/mequon/mequon-new-patient.pdf => https://mequonwi.thewellnessway.com/forms/mequon/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/mequon/mequon\-new\-patient\.pdf$ /forms/mequon/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://waukeshawi.thewellnessway.com/forms/waukesha/waukesha-pediatric-history.pdf => https://waukeshawi.thewellnessway.com/forms/waukesha/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/waukesha/waukesha\-pediatric\-history\.pdf$ /forms/waukesha/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://waukeshawi.thewellnessway.com/forms/waukesha/waukesha-new-patients.pdf => https://waukeshawi.thewellnessway.com/forms/waukesha/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/waukesha/waukesha\-new\-patients\.pdf$ /forms/waukesha/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://fonddulacwi.thewellnessway.com/forms/fond-du-lac/fdl-health-history.pdf => https://fonddulacwi.thewellnessway.com/forms/fond-du-lac/health-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/fond\-du\-lac/fdl\-health\-history\.pdf$ /forms/fond\-du\-lac/health\-history.pdf? [L,R=301]
+
+# 301 --- https://fonddulacwi.thewellnessway.com/forms/fond-du-lac/fdl-pediatric-history.pdf => https://fonddulacwi.thewellnessway.com/forms/fond-du-lac/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/fond\-du\-lac/fdl\-pediatric\-history\.pdf$ /forms/fond\-du\-lac/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://fonddulacwi.thewellnessway.com/forms/fond-du-lac/fdl-new-patient.pdf => https://fonddulacwi.thewellnessway.com/forms/fond-du-lac/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/fond\-du\-lac/fdl\-new\-patient\.pdf$ /forms/fond\-du\-lac/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://rockfordil.thewellnessway.com/forms/rockford/rockford-health-history.pdf => https://rockfordil.thewellnessway.com/forms/rockford/health-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/rockford/rockford\-health\-history\.pdf$ /forms/rockford/health\-history.pdf? [L,R=301]
+
+# 301 --- https://rockfordil.thewellnessway.com/forms/rockford/rockford-pediatric-history.pdf => https://rockfordil.thewellnessway.com/forms/rockford/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/rockford/rockford\-pediatric\-history\.pdf$ /forms/rockford/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://rockfordil.thewellnessway.com/forms/rockford/rockford-signature-pages.pdf => https://rockfordil.thewellnessway.com/forms/rockford/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/rockford/rockford\-signature\-pages\.pdf$ /forms/rockford/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://davenport.thewellnessway.com/forms/davenport/davenport-health-history.pdf => https://davenport.thewellnessway.com/forms/davenport/health-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/davenport/davenport\-health\-history\.pdf$ /forms/davenport/health\-history.pdf? [L,R=301]
+
+# 301 --- https://davenport.thewellnessway.com/forms/davenport/davenport-pediatric-history.pdf => https://davenport.thewellnessway.com/forms/davenport/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/davenport/davenport\-pediatric\-history\.pdf$ /forms/davenport/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://davenport.thewellnessway.com/forms/davenport/davenport-signature-pages.pdf => https://davenport.thewellnessway.com/forms/davenport/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/davenport/davenport\-signature\-pages\.pdf$ /forms/davenport/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://columbiamo.thewellnessway.com/forms/columbia/columbia-pediatric-history.pdf => https://columbiamo.thewellnessway.com/forms/columbia/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/columbia/columbia\-pediatric\-history\.pdf$ /forms/columbia/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://columbiamo.thewellnessway.com/forms/columbia/columbia-signature-pages.pdf => https://columbiamo.thewellnessway.com/forms/columbia/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/columbia/columbia\-signature\-pages\.pdf$ /forms/columbia/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://coloradospringsco.thewellnessway.com/forms/colorado-springs/coloradosprings-health-history.pdf => https://coloradospringsco.thewellnessway.com/forms/colorado-springs/health-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/colorado\-springs/coloradosprings\-health\-history\.pdf$ /forms/colorado\-springs/health\-history.pdf? [L,R=301]
+
+# 301 --- https://englewoodco.thewellnessway.com/ => https://clinics.thewellnessway.com/co/englewood/wellness-center-25.html
+RewriteCond %{HTTP_HOST} ^englewoodco\.thewellnessway\.com$
+RewriteRule ^$ https://clinics.thewellnessway.com/co/englewood/wellness\-center\-25.html? [L,R=301]
+
+
+# 301 --- https://englewoodco.thewellnessway.com/forms/englewood/englewood-new-patient-adult.pdf => https://englewoodco.thewellnessway.com/forms/englewood/health-history-adult.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/englewood/englewood\-new\-patient\-adult\.pdf$ /forms/englewood/health\-history\-adult.pdf? [L,R=301]
+
+# 301 --- https://englewoodco.thewellnessway.com/forms/englewood/englewood-new-patient-pregnancy.pdf => https://englewoodco.thewellnessway.com/forms/englewood/health-history-pregnancy.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/englewood/englewood\-new\-patient\-pregnancy\.pdf$ /forms/englewood/health\-history\-pregnancy.pdf? [L,R=301]
+
+# 301 --- https://englewoodco.thewellnessway.com/forms/englewood/englewood-new-patient-child.pdf => https://englewoodco.thewellnessway.com/forms/englewood/health-history-child.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/englewood/englewood\-new\-patient\-child\.pdf$ /forms/englewood/health\-history\-child.pdf? [L,R=301]
+
+# 301 --- https://englewoodco.thewellnessway.com/forms/englewood/englewood-signature-pages.pdf => https://englewoodco.thewellnessway.com/forms/englewood/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/englewood/englewood\-signature\-pages\.pdf$ /forms/englewood/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://flatheadvalleymt.thewellnessway.com/forms/flathead-valley/flathead-health-history.pdf => https://flatheadvalleymt.thewellnessway.com/forms/flathead-valley/health-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/flathead\-valley/flathead\-health\-history\.pdf$ /forms/flathead\-valley/health\-history.pdf? [L,R=301]
+
+# 301 --- https://flatheadvalleymt.thewellnessway.com/forms/flathead-valley/flathead-pediatric-history.pdf => https://flatheadvalleymt.thewellnessway.com/forms/flathead-valley/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/flathead\-valley/flathead\-pediatric\-history\.pdf$ /forms/flathead\-valley/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://beavertonor.thewellnessway.com/forms/beaverton/beaverton-health-history.pdf => https://beavertonor.thewellnessway.com/forms/beaverton/health-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/beaverton/beaverton\-health\-history\.pdf$ /forms/beaverton/health\-history.pdf? [L,R=301]
+
+# 301 --- https://beavertonor.thewellnessway.com/forms/beaverton/beaverton-pediatric-history.pdf => https://beavertonor.thewellnessway.com/forms/beaverton/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/beaverton/beaverton\-pediatric\-history\.pdf$ /forms/beaverton/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://beavertonor.thewellnessway.com/forms/beaverton/beaverton-signature-pages.pdf => https://beavertonor.thewellnessway.com/forms/beaverton/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/beaverton/beaverton\-signature\-pages\.pdf$ /forms/beaverton/signature\-pages.pdf? [L,R=301]
+
+
+# 301 --- https://memorialtx.thewellnessway.com/forms/memorial/memorial-health-history.pdf => https://memorialtx.thewellnessway.com/forms/memorial/health-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/memorial/memorial\-health\-history\.pdf$ /forms/memorial/health\-history.pdf? [L,R=301]
+
+# 301 --- https://memorialtx.thewellnessway.com/forms/memorial/memorial-pediatric-history.pdf => https://memorialtx.thewellnessway.com/forms/memorial/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/memorial/memorial\-pediatric\-history\.pdf$ /forms/memorial/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://memorialtx.thewellnessway.com/forms/memorial/memorial-signature-pages.pdf => https://memorialtx.thewellnessway.com/forms/memorial/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/memorial/memorial\-signature\-pages\.pdf$ /forms/memorial/signature\-pages.pdf? [L,R=301]
+
+
+# 301 --- https://madisonms.thewellnessway.com/forms/madison/madison-health-history.pdf => https://madisonms.thewellnessway.com/forms/madison/health-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/madison/madison\-health\-history\.pdf$ /forms/madison/health\-history.pdf? [L,R=301]
+
+# 301 --- https://madisonms.thewellnessway.com/forms/madison/madison-pediatric-history.pdf => https://madisonms.thewellnessway.com/forms/madison/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/madison/madison\-pediatric\-history\.pdf$ /forms/madison/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://madisonms.thewellnessway.com/forms/madison/madison-signature-pages.pdf => https://madisonms.thewellnessway.com/forms/madison/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/madison/madison\-signature\-pages\.pdf$ /forms/madison/signature\-pages.pdf? [L,R=301]
+
+
+# 301 --- https://springvilleal.thewellnessway.com/forms/springville/springville-health-history.pdf => https://springvilleal.thewellnessway.com/forms/springville/health-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/springville/springville\-health\-history\.pdf$ /forms/springville/health\-history.pdf? [L,R=301]
+
+# 301 --- https://springvilleal.thewellnessway.com/forms/springville/springville-pediatric-history.pdf => https://springvilleal.thewellnessway.com/forms/springville/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/springville/springville\-pediatric\-history\.pdf$ /forms/springville/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://springvilleal.thewellnessway.com/forms/springville/springville-signature-pages.pdf => https://springvilleal.thewellnessway.com/forms/springville/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/springville/springville\-signature\-pages\.pdf$ /forms/springville/signature\-pages.pdf? [L,R=301]
+
+# 301 --- https://meridianvilleal.thewellnessway.com/forms/meridianville/meridianville-pediatric-packet.pdf => https://meridianvilleal.thewellnessway.com/forms/meridianville/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/meridianville/meridianville\-pediatric\-packet\.pdf$ /forms/meridianville/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://meridianvilleal.thewellnessway.com/forms/meridianville/meridianville-signature-pages.pdf => https://meridianvilleal.thewellnessway.com/forms/meridianville/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/meridianville/meridianville\-signature\-pages\.pdf$ /forms/meridianville/signature\-pages.pdf? [L,R=301]
+
+
+# 301 --- https://mtpleasantsc.thewellnessway.com/forms/mtpleasantsc/mtpleaseant-new-patient-paperwork.pdf => https://mtpleasantsc.thewellnessway.com/forms/mtpleasantsc/health-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/mtpleasantsc/mtpleaseant\-new\-patient\-paperwork\.pdf$ /forms/mtpleasantsc/health\-history.pdf? [L,R=301]
+
+# 301 --- https://mtpleasantsc.thewellnessway.com/forms/mtpleasantsc/mtpleaseant-pediatric-history.pdf => https://mtpleasantsc.thewellnessway.com/forms/mtpleasantsc/pediatric-history.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/mtpleasantsc/mtpleaseant\-pediatric\-history\.pdf$ /forms/mtpleasantsc/pediatric\-history.pdf? [L,R=301]
+
+# 301 --- https://mtpleasantsc.thewellnessway.com/forms/mtpleasantsc/mtpleaseant-signature-pages.pdf => https://mtpleasantsc.thewellnessway.com/forms/mtpleasantsc/signature-pages.pdf
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^forms/mtpleasantsc/mtpleaseant\-signature\-pages\.pdf$ /forms/mtpleasantsc/signature\-pages.pdf? [L,R=301]
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+Redirect 301 /how-we-help /our-approach
+Redirect 301 /restore-your-health/real-life-results /stories
+Redirect 301 /connect-to-wellness/blog /articles
+Redirect 301 /connect-to-wellness/healthy-recipes /healthy-recipes
+Redirect 301 /connect-to-wellness/social /social
+Redirect 301 /connect-to-wellness/events /events
+Redirect 301 /connect-to-wellness/podcasts /podcasts
+Redirect 301 /connect-to-wellness/idisagree /idisagree
+Redirect 301 /not-losing-weight /conditions/weight-loss
+Redirect 301 /student-program /student-club
+Redirect 301 /weight-loss /conditions/weight-loss
+Redirect 301 /thyroid /conditions/thyroid
+Redirect 301 /mood-disorders /conditions/mood-disorders
+Redirect 301 /joint-muscle-pain /conditions/joint-muscle-pain
+Redirect 301 /hormone-imbalances /conditions/hormone-imbalances
+Redirect 301 /heart-disease /conditions/heart-disease
+Redirect 301 /fatigue /conditions/fatigue
+Redirect 301 /digestive-issues /conditions/digestive-issues
+Redirect 301 /cancer /conditions/cancer
+Redirect 301 /autoimmune /conditions/autoimmune
+Redirect 301 /allergies /conditions/allergies
+Redirect 301 /connect-to-wellness/healthy-recipes/breakfast /healthy-recipes/breakfast
+Redirect 301 /connect-to-wellness/healthy-recipes/main-dishes /healthy-recipes/main-dishes
+Redirect 301 /connect-to-wellness/healthy-recipes/salads /healthy-recipes/salads
+Redirect 301 /connect-to-wellness/healthy-recipes/soups /healthy-recipes/soups
+Redirect 301 /connect-to-wellness/healthy-recipes/desserts /healthy-recipes/desserts
+Redirect 301 /connect-to-wellness/healthy-recipes/snacks /healthy-recipes/snacks
+Redirect 301 /connect-to-wellness/healthy-recipes/condiments /healthy-recipes/condiments
+Redirect 301 /connect-to-wellness/healthy-recipes/diy /healthy-recipes/diy
+Redirect 301 /no-sugar /healthy-recipes/no-sugar
+Redirect 301 /beverages /healthy-recipes/beverages
+Redirect 301 /landing-page /discover
+Redirect 301 /connect-to-wellness /resources
+Redirect 301 /our-story /who-we-are
+Redirect 301 /our-team /who-we-are
+Redirect 301 /our-difference /who-we-are
+Redirect 301 /thewellnessway /
+Redirect 301 /category/articles /articles
+Redirect 301 /category/recipes /healthy-recipes
+Redirect 301 /category/beverages /healthy-recipes/beverages
+Redirect 301 /category/breakfast /healthy-recipes/breakfast
+Redirect 301 /category/cardiovascular-support /articles/cardiovascular-support
+Redirect 301 /category/chronic-and-acute-pain-support /articles/chronic-and-acute-pain-support
+Redirect 301 /category/condiments /healthy-recipes/condiments
+Redirect 301 /category/desserts /healthy-recipes/desserts
+Redirect 301 /category/detoxification-support /articles/detoxification-support
+Redirect 301 /category/digestive-support /articles/digestive-support
+Redirect 301 /category/digital-detox /articles/digital-detox
+Redirect 301 /category/diy /healthy-recipes/diy
+Redirect 301 /category/docs-thoughts /articles/docs-thoughts
+Redirect 301 /category/fertility-journey /articles/fertility-journey
+Redirect 301 /category/food-and-nutritional-support /articles/food-and-nutritional-support
+Redirect 301 /category/honor-our-elders /articles/honor-our-elders
+Redirect 301 /category/hormone-support /articles/hormone-support
+Redirect 301 /category/immune-support /articles/immune-support
+Redirect 301 /category/infants-children-and-teens /articles/infants-children-and-teens
+Redirect 301 /category/lifestyle-tips /articles/lifestyle-tips
+Redirect 301 /category/main-dishes /healthy-recipes/main-dishes
+Redirect 301 /category/mens-health-journey /articles/mens-health-journey
+Redirect 301 /category/motherhood-journey /articles/motherhood-journey
+Redirect 301 /category/neurological-and-emotional-support /articles/neurological-and-emotional-support
+Redirect 301 /category/no-sugar /healthy-recipes/no-sugar
+Redirect 301 /category/salads /healthy-recipes/salads
+Redirect 301 /category/skin /articles/skin
+Redirect 301 /category/sleep-energy-and-fatigue-support /articles/sleep-energy-and-fatigue-support
+Redirect 301 /category/snacks /healthy-recipes/snacks
+Redirect 301 /category/soups /healthy-recipes/soups
+Redirect 301 /category/supplement-spotlight /articles/supplement-spotlight
+Redirect 301 /category/teen-journey /articles/teen-journey
+Redirect 301 /category/student-resources /student-resources
+Redirect 301 /find-your-condition /conditions
+Redirect 301 /clinics/co/louisville /clinics/co/westminster
+Redirect 301 /clinics/mn/bloomington /clinics/mn/edenprairie
+Redirect 301 /gymnema /gymnema-stop-sugar-cravings-and-achieve-a-healthy-weight
+Redirect 301 /gbevents /clinics/wi/greenbay/wellness-center/events
+Redirect 301 /journey /guides
+Redirect 301 /metabolic-approach-to-cancer /matc
+
+</IfModule>
+
+
+

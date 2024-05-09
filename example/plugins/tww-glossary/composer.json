@@ -1,0 +1,18 @@
+{
+    "name": "prudy/tww-glossary",
+    "type": "wordpress-plugin",
+    "license": "gplv2",
+    "autoload": {
+        "psr-4": {
+            "TwwGlossary\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Philip Rudy"
+        }
+    ],
+    "require": {
+        "htmlburger/carbon-fields": "^3.6"
+    }
+}

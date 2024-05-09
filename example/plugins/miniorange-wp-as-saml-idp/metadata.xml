@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://www.thewellnessway.com/wp-content/plugins/miniorange-wp-as-saml-idp/">
+  <md:IDPSSODescriptor WantAuthnRequestsSigned="1" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:KeyDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIElTCCA32gAwIBAgIUG9ZkPUYwnNJ9yXXYBrtasp/99HowDQYJKoZIhvcNAQELBQAwgbMxFzAVBgNVBAMMDm1pbmlvcmFuZ2UuY29tMRUwEwYDVQQDDAx4ZWN1cmlmeS5jb20xCzAJBgNVBAYTAlVTMRAwDgYDVQQIDAdXeW9taW5nMREwDwYDVQQHDAhDaGV5ZW5uZTEtMCsGA1UECgwkbWluaU9yYW5nZSBTZWN1cml0eSBTb2Z0d2FyZSBQdnQgTHRkMSAwHgYJKoZIhvcNAQkBFhFpbmZvQHhlY3VyaWZ5LmNvbTAeFw0yMzExMjQxMDM4MTNaFw0yNTAxMTcxMDM4MTNaMIGzMRcwFQYDVQQDDA5taW5pb3JhbmdlLmNvbTEVMBMGA1UEAwwMeGVjdXJpZnkuY29tMQswCQYDVQQGEwJVUzEQMA4GA1UECAwHV3lvbWluZzERMA8GA1UEBwwIQ2hleWVubmUxLTArBgNVBAoMJG1pbmlPcmFuZ2UgU2VjdXJpdHkgU29mdHdhcmUgUHZ0IEx0ZDEgMB4GCSqGSIb3DQEJARYRaW5mb0B4ZWN1cmlmeS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDeT2P3tJpOYcjbrXt6xRnxwbFD1GouFM8nMbkEyGxjEP2OHNHhbXI0hSXaOgbpUBW9sGTPPWNGK3avDclvK6pQIMeyk272DIq+IG0aFN8PrlxpPQQClxwdpt0YWDBpWO31dFsTuUukUWlQwbzu3Z/2DN7b8R9KKPhDlb3RYKTznD9zPU5nrpG4qtNbMAjPCOrgmjMEByRsnHnAWupNE15bzSDF0YISl6LGgpDe+MQo2VpyZyxH/NUEs4LvDAiM0AZwawe2FzyPVm3Z/SIp7Eer5L3F4OfHZ89J6Dm3DYH4WtnhqN74bU/OWGyNZ+kbFRoo6Gr9ZvHbHWl9w8HZIcgbAgMBAAGjgZ4wgZswHQYDVR0OBBYEFB7iZs2DOlek7jPH5YrEGOTjujWmMB8GA1UdIwQYMBaAFB7iZs2DOlek7jPH5YrEGOTjujWmMA4GA1UdDwEB/wQEAwIFoDAgBgNVHSUBAf8EFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwJwYDVR0RBCAwHoIObWluaW9yYW5nZS5jb22CDHhlY3VyaWZ5LmNvbTANBgkqhkiG9w0BAQsFAAOCAQEAm6v4wqLtMS1myybOiBLt79hJvJPumVnWthKFWGO2/mDMXMBS1X8dVK8h2Yn220xq8DTbIDxJW019iOmA7uEpdHNjyqtiRUTsEcBBdeRcSu1qS6IHtzlPdhFBWjbKx8u7Skv17ILhz5oW8yCjttueVvwVin0WUwQRM4Qn63QspmzK9K57w6AHzSs8z3eo9kUCgsd90VePGloZG0ZZ3WVnA3L1v6wS5dbbe6nF4Q7sji/y8+mzFmDBmn2FSFk755R+pV/1SXporU9S8f/t1goP3VPw0up6dQefRuHWZjjq1qaV4v5yLUhz/dsQ8dhuERRrHaJ41Ftq8DL363kbDZ48qg==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.thewellnessway.com/"/>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.thewellnessway.com/"/>
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en-US">miniOrange</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en-US">miniOrange</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en-US">https://miniorange.com</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>miniOrange</md:GivenName>
+    <md:SurName>Support</md:SurName>
+    <md:EmailAddress>info@xecurify.com</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>

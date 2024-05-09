@@ -25,11 +25,13 @@ RUN echo "deb http://ftp.debian.org/debian $(sed -n 's/^VERSION=.*(\(.*\)).*/\1/
         vim \
         zip \
     && apt-get -t "$(sed -n 's/^VERSION=.*(\(.*\)).*/\1/p' /etc/os-release)-backports" install -y --no-install-recommends \
-        python-certbot-apache \
+        certbot python3-certbot-apache \
     && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && pecl install imagick \
     && pecl install redis \
+    && pecl install xdebug-3.1.5\
+    && docker-php-ext-enable xdebug \
     && docker-php-ext-install \
         bcmath \
         exif \
@@ -95,3 +97,14 @@ USER admin
 WORKDIR /app
 EXPOSE 80 443
 CMD ["/run.sh"]
+
+COPY ./usr/local/etc/php/php.ini /usr/local/etc/php/php.ini
+
+
+# Install PHPUnit
+RUN curl -LO https://phar.phpunit.de/phpunit-9.phar \
+    && chmod +x phpunit-9.phar \
+    && sudo mv phpunit-9.phar /usr/local/bin/phpunit
+
+# Update repositories and install svn
+RUN sudo apt-get update && sudo apt-get install -y subversion

@@ -1,0 +1,323 @@
+:root {
+    --brand-green: rgb(128, 183, 65);
+    --brand-grey: rgb(136, 136, 136);
+    --border-grey: rgb(204, 204, 204);
+    --border-grey-light: rgb(238, 238, 238);
+
+    --tww-green: #80b741;
+    --tww-dark-grey: #414444;
+    --tww-light-grey: #ddddde;
+    --tww-beige: #dcd4cb;
+
+    --brand-grey-light: var(--tww-light-grey);
+
+    --tww-white: white;
+
+    --black: rgb(0, 0, 0);
+    --red: rgb(153, 27, 27);
+
+    --active: rgb(220, 252, 231);
+    --active-alt: rgb(22, 101, 52);
+    --canceled: var(--red);
+    --pending: rgb(255, 255, 0);
+
+    --vertical_rythm: 7px;
+
+    --h3size: 21px;
+    --h3lh: 28px;
+    --psize: 16px;
+    --plh: 28px;
+    --plh-alt: 21px;
+    --psmall: 14px;
+    --plh-small: 21px;
+}
+
+h2.entry-header {
+    margin-bottom: 28px;
+}
+
+header.letters.tww-fixed {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    transition: .3s all ease;
+}
+
+@media (min-width: 768px){
+    body.admin-bar header.letters.tww-fixed {
+        margin-top: 28px;
+    }
+}
+
+.vr-1 {
+    padding-top: var(--vertical_rythm);
+    padding-bottom: var(--vertical_rythm);
+}
+
+.h4-alt {
+    font-size: var(--psize);
+    line-height: var(--plh);
+    color: var(--brand-grey);
+    margin-bottom: var(--vertical_rythm);
+    text-transform: uppercase;
+    letter-spacing: .05px;
+}
+
+.tww-bg-brand-grey  {
+    background-color: var(--brand-grey-light);
+}
+
+header.letters {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 56px;
+}
+
+header.letters ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+@media (max-width: 768px){
+    header.letters ul {
+        justify-content: flex-start;
+        overflow-x: scroll;
+        padding: 10px;
+    }
+
+    /* Targeting the ul within .letters class for scrollbar styles */
+header.letters ul {
+    overflow-y: auto; /* Enables vertical scrolling if content overflows */
+    height: 100%; /* Adjust based on your layout needs */
+  }
+  
+  /* Style the scrollbar thumb */
+  header.letters ul::-webkit-scrollbar {
+    width: 8px; /* Adjust the width of the scrollbar */
+  }
+  
+  header.letters ul::-webkit-scrollbar-track {
+    background-color: transparent; /* Makes track barely visible */
+  }
+  
+  header.letters ul::-webkit-scrollbar-thumb {
+    background-color: var(--brand-green); /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners for the thumb */
+    border: 2px solid transparent; /* Optional: border for the thumb */
+    background-clip: padding-box; /* Ensures the border doesn't take up extra space */
+  }
+  
+  /* Firefox scrollbar styles for the same element */
+  header.letters ul {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #80b741 transparent; /* For Firefox */
+  }
+    
+}
+
+header.letters ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header.letters ul li a {
+    text-decoration: none;
+    color: var(--brand-green);
+    font-size: var(--h3size);
+    line-height: var(--h3lh);
+    display: block;
+    padding: 10px;
+}
+
+/* container */
+
+.single-tww_study {
+    margin-bottom: var(--vertical_rythm);
+}
+
+.single-tww_study--breadcrumbs {
+    margin-bottom: var(--vertical_rythm);
+}
+
+.single-tww-study--page-title  {
+    padding: 49px 0 21px;
+}
+
+.single-tww-study--article {
+    padding-bottom: 56px;
+}
+
+.tww-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px;
+    width: 100%;
+}
+
+.single-study-container {
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+}
+
+/* glossary hero */
+
+.glossary-hero {
+    padding: 40px 0;
+}
+
+.glossary-tag {
+    background: #eee;
+    padding: 7px;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 13px;
+}
+
+@media (max-width: 768px){
+    .glossary-hero-content > div {
+        width: 100%;
+        margin-bottom: 28px;
+    }
+}
+
+.glossary-hero-content {
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.glossary-hero-intro {
+    padding-right: 20px;
+    width: 70%;
+}
+
+.glossary-hero-sidebar {
+    width: 30%;
+}
+
+.glossary-hero-sidebar ul {   
+    padding-left: 20px;
+    border-left: 1px solid var(--brand-grey-light);
+}
+
+.glossary-hero-sidebar ul li {
+    list-style: none;
+    padding: 0;
+    margin-bottom: calc(var(--vertical_rythm) * 1.5);
+    font-size: var(--psize);
+    line-height: var(--plh-alt);
+}
+
+/* glossary list */
+
+.letter-section {
+    padding: 40px;
+}
+
+.letter-section .letter-list li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.letter-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: var(--vertical_rythm);
+}
+
+.letter-title span a {
+    font-size: var(--psmall);
+    line-height: var(--plh-small);
+    margin-left: 10px;
+    color: var(--brand-grey)
+}
+
+.letter-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 21px; 
+}
+
+@media (max-width: 768px){
+    .letter-list {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); 
+        gap: 21px; 
+    }
+}
+
+.single-tww-study--page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--vertical_rythm);
+    background-color: var(--brand-grey-light);
+}
+
+.single-tww-study--article {
+    padding: 20px;
+    background-color: var(--white);
+    max-width: 1200px;
+    width: 100%;
+}
+
+.gate-overlay {
+    position: absolute;
+    top: 92px;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    background: linear-gradient(transparent, rgb(0, 0, 0));
+}
+
+.gate--cta {
+    position: fixed;
+    bottom: 0;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: white;
+    border-top: 4px solid var(--brand-green);
+    padding: 49px 0;
+    text-align: center;
+    transition: .3s all ease;
+    z-index: 99;
+}
+
+.tww--gate-cta {
+    display: block; 
+    background-color: var(--brand-green);
+    padding: 21px 10px;
+    z-index: 999;
+}
+
+body.tww-plus-non-member {
+    max-height: 900px;
+}
+
+a.button-primary,
+button.button-primary {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--brand-green);
+    color: white;
+    font-style: normal;
+    text-decoration: none;
+    border-radius: 4px;
+}

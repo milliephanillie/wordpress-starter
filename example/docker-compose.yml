@@ -4,9 +4,9 @@ services:
         depends_on:
             - db
         privileged: true
-        build:
+        build: 
             context: ../
-            dockerfile: wp.dockerfile
+            dockerfile: images/7.4/Dockerfile
 
         # required for mounting bindfs
         cap_add:
@@ -16,31 +16,47 @@ services:
         # required on certain cloud hosts
         security_opt:
             - apparmor:unconfined
-
+        container_name: wordpress
         ports:
-            - 8080:80
-            - 443:443
+            - 8081:80
+            - 444:443
         volumes:
             - ./data:/data
+            - ./app/wp-content:/var/www/html
             - ./themes/plugin-builder:/app/wp-content/themes/plugin-builder
             - ./wp-tests-config.php:/app/wp-tests-config.php
+            - ./themes/salient-child:/app/wp-content/themes/salient-child
+            - ./themes/salient:/app/wp-content/themes/salient
+            - ./plugins/tww-glossary:/app/wp-content/plugins/tww-glossary
+            - ./plugins/tww-forms:/app/wp-content/plugins/tww-forms
+            - ./plugins/random-plugin:/app/wp-content/plugins/random-plugin
+            - ./plugins/salient-core:/app/wp-content/plugins/salient-core
+            - ./plugins/tww-reports:/app/wp-content/plugins/tww-reports
+            - ./plugins/memberpress:/app/wp-content/plugins/memberpress
+            - ./plugins/tww-protein:/app/wp-content/plugins/tww-protein
+            - ./plugins/woocommerce:/app/wp-content/plugins/woocommerce
+            - ./plugins/presto-player:/app/wp-content/plugins/presto-player
+            - ./plugins/js_composer_salient:/app/wp-content/plugins/js_composer_salient
+            - ./plugins/woocommerce-product-addons:/app/wp-content/plugins/woocommerce-product-addons
+            - ./plugins/memberpress-developer-tools:/app/wp-content/plugins/memberpress-developer-tools
+            - ./plugins/memberpress-wpbakery:/app/wp-content/plugins/memberpress-wpbakery
+            - ./plugins/memberpress-woocommerce:/app/wp-content/plugins/memberpress-woocommerce
+            - ./plugins/wp-remote-users-sync:/app/wp-content/plugins/wp-remote-users-sync
             - ./scripts:/docker-entrypoint-initwp.d
         environment:
             WP_TESTS_DOMAIN: example.org
-            WP_DEBUG: true
-            WP_DEBUG_LOG: true
-            DB_NAME: wordpress
-            DB_USER: root
-            DB_PASS: root
-            PLUGINS: >-
-                co-authors-plus
+            WP_DEBUG: 'true'
+            WP_DEBUG_LOG: 'true'
+            DB_NAME: 'wordpress'
+            DB_USER: 'root'
+            DB_PASS: 'root'
             EXTRA_PHP: >-
                 define('WP_MEMORY_LIMIT', '256M');
 
     db:
         image: mariadb:10 # or mysql:5.7
         ports:
-            - "3306:3306"
+            - "3307:3306"
         volumes:
             - data:/var/lib/mysql
         environment:

@@ -1,0 +1,257 @@
+.aphs-admin{
+	padding:20px;
+	background: #fff;
+}
+.aphs-admin .form-table th{
+	width: 300px;
+	font-weight: normal;
+}
+.aphs-admin input[type=text],
+.aphs-admin input[type=number],
+.aphs-admin textarea,
+.aphs-admin select{
+	width: 300px;
+}
+
+.aphs-admin button, .aphs-admin input {
+    vertical-align: middle;
+}
+
+
+.playlist-items-type-info,
+.controls-type-info,
+.playlist-position-info,
+.navigation-type-info{
+	display: none;
+}
+.aphs-admin .info{
+	font-size: 13px;
+}
+.aphs-admin .info-light{
+	font-size: 13px;
+	color: #acacaa;
+}
+.aphs-admin .info-highlight{
+	font-size: 13px;
+	color: #d9534f;
+}
+.aphs-admin .info-highlight2{
+	font-size: 13px;
+	color: #0073aa;
+}
+.aphs-admin .option-closed{
+	height: 40px;
+	overflow: hidden;
+}
+.aphs-admin .option-tab{
+	overflow: hidden;
+}
+.aphs-admin .option-tab-divider{
+	height: 20px;
+	background: #f1f1f1;
+}
+.aphs-admin .option-toggle{
+	height: 40px;
+	background: #0073aa;
+	cursor: pointer;
+	position: relative;
+}
+.aphs-admin .option-title{
+	line-height: 40px;
+    font-size: 15px;
+    color: #fff;
+    margin-left: 15px;
+    font-weight: bold;
+    user-select: none; 
+}
+.aphs-admin .option-content{
+	margin-left: 25px;
+    margin-bottom: 25px;
+    margin-right: 25px;
+}
+
+.aphs-actions{
+	display: inline-block;
+}
+
+
+
+#aphs-loader {
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	overflow-x: auto;
+	overflow-y: scroll;
+	z-index: 1000;
+	background: #000;
+	background: rgba(0,0,0,0.7);
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.aphs-loader-anim{
+    position: absolute;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.aphs-loader-anim span{
+    display:block;
+    bottom:0;
+    width: 9px;
+    height: 5px;
+    background:#fff;
+    position:absolute;
+    animation: aphs_preloader 1.5s  infinite ease-in-out;
+}
+.aphs-loader-anim span:nth-child(2){
+	left:11px;
+	animation-delay: .2s;
+}
+.aphs-loader-anim span:nth-child(3){
+	left:22px;
+	animation-delay: .4s;
+}
+.aphs-loader-anim span:nth-child(4){
+	left:33px;
+	animation-delay: .6s;
+}
+.aphs-loader-anim span:nth-child(5){
+	left:44px;
+	animation-delay: .8s;
+}
+@keyframes aphs_preloader {
+    0% {height:5px;transform:translateY(0px);}
+    25% {height:30px;transform:translateY(15px);}
+    50% {height:5px;transform:translateY(0px);}
+    100% {height:5px;transform:translateY(0px);}
+}
+
+
+#aphs-err{
+	display: none;
+}
+.aphs-chb{
+	margin: 10px 0;
+}
+
+.aphs-admin{
+    padding: 10px 20px 20px 20px;
+}
+
+
+
+/* tabs */
+.aphs-tab-header{
+    overflow: hidden;
+    margin: 10px 0;
+}
+.aphs-tab-header div{
+	display: inline-block;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 10px 13px;
+    margin: 0 8px 0 0;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+.aphs-tab-header div:hover,
+.aphs-tab-active{
+    background-color: #007cba!important;
+    color: #fff;
+}
+.aphs-tab-content{
+	display: none;
+    padding-left: 10px;
+}
+
+
+
+.CodeMirror-wrap{
+	border: 1px solid #eee;
+}
+
+
+.aphs-featured-box{
+    margin-bottom: 18px;
+}
+
+
+.aphs-featured-poster-preview-img{
+    display: block;
+    max-width: 300px;
+    height: auto;
+    width: auto;
+    vertical-align: top;
+    margin-bottom: 10px;
+}
+
+.aphs-featured-preview{
+    max-width: 300px;
+}
+
+.aphs-featured-video{
+    max-width:100%;
+    display:block;
+}
+
+.aphs-featured-box button,
+.aphs-featured-box input,
+.aphs-featured-box textarea{
+    vertical-align: middle!important;
+}
+
+.aphs-featured-box-info{
+    margin: 0 0 5px 0;
+}
+
+
+#aphs_custom_css_field{
+    display: none;
+}
+
+.aphs-edit-product-image{
+    margin: 3px;
+    display: block;
+}
+
+.aphs-img-preview-wrap{
+    background: #e8e8e8;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.aphs-img-preview{
+    display: block;
+    max-width: 90%;
+    height: auto;
+}
+
+#aphs-product-gallery-table tr{
+    border-bottom: 1px solid #eee;
+}
+
+
+
+.aphs-inner-table{
+    border: 1px solid #eee;
+    padding: 0 10px;
+    margin-top: 15px;
+}
+#aphs-inner-table-product-alternative{
+    display: none;
+}
+
+#aphs-tab-shortcode-content textarea{
+    width: 70%;
+}
+
+
+

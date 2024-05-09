@@ -1,0 +1,38 @@
+<div class="sviper-slide" data-id="{{:id}}">
+    <div class="asl-box">
+        <div class="sl-txt-block">
+            <div class="sl-inner-block">
+                <h3>{{:title}}</h3>
+                <p>{{:address}}</p>
+                {{if phone}}
+                <p><a href="tel:{{:phone}}">{{:phone}}</a></p>
+                {{/if}}
+                {{if email}}
+                <p><a href="mailto:{{:email}}">{{:email}}</a></p>
+                {{/if}}
+            </div>
+            {{if open_hours}}
+            <div class="sl-inner-block">
+                <h4>[Opening Hours]</h4>
+                {{if open}}
+                <span class="sl-time-status sl-opened">[Opened]</span>
+                {{else}}
+                <span class="sl-time-status sl-closed">[Closed]</span>
+                {{/if}}
+                <ul>
+                    <li>[Morgen]: <strong>{{:open_hours}}</strong></li> 
+                </ul>
+            </div>
+            {{/if}}
+            <div class="sl-inner-block text-btn">
+                <ul class="sl-item-btns no-gutters">
+                    <li class="pol"><a class="s-direction">[Route]</a></li>
+                    {{if website}}
+                    <li class="pol sl-web-link"><a href="{{:website}}" target="{{:target}}" class="sl-link">[Details]</a></li>
+                    {{/if}}
+                    <li class="pol sl-cont-link"><a class="sl-contact-btn">[Contact Us]</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
