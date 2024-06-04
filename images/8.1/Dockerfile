@@ -92,7 +92,6 @@ CMD ["/run.sh"]
 
 COPY ./usr/local/etc/php/php.ini /usr/local/etc/php/php.ini
 
-
 # Install PHPUnit
 RUN curl -LO https://phar.phpunit.de/phpunit-10.phar \
     && chmod +x phpunit-10.phar \

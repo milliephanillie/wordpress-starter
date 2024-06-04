@@ -6,7 +6,7 @@ services:
         privileged: true
         build: 
             context: ../
-            dockerfile: images/7.4/Dockerfile
+            dockerfile: images/8.1/Dockerfile
 
         # required for mounting bindfs
         cap_add:
